@@ -40,4 +40,4 @@ strain (`max(e1, e3) > 0`). With this change the crack grows from about 4.3 N in
   iteration limit (unstable crack jump), so use more load steps (`--nsteps`) before trusting numbers.
 - The damage zone is wide because the length scale ell (8 µm) is not small relative to the crack; the cone angle
   has not been verified against theory.
-- Based on a script provided by the author's course/source; check its licence before making the repository public.
+
