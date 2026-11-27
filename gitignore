@@ -1,0 +1,3 @@
+*.npz
+*.gif
+__pycache__/
