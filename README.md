@@ -4,6 +4,8 @@ Axisymmetric (r, z) AT2 phase-field fracture model of a glass plate under a Hert
 (steel ball, quasi-static), showing the formation of a cone crack. Built with
 [scikit-fem](https://github.com/kinnala/scikit-fem).
 
+![Cone crack growth](grow.gif)
+
 ## Files
 - `glass_cone_crack_phasefield_fixed.py` – simulation. Saves a snapshot of the damage field φ at every load step.
 - `animate.py` – turns the saved snapshots into a GIF.
@@ -18,6 +20,7 @@ pip install scikit-fem scipy numpy matplotlib pillow
 python glass_cone_crack_phasefield_fixed.py --ell 0.008 --hfac 2 --nsteps 36 --pmin 1.0 --pmax 3 --flaw_r 0.08 --flaw_depth 0.1 --out grow
 python animate.py grow.npz
 ```
+
 Outputs: `grow.png` (final damage field and load–crack-depth curve), `grow.npz` (data), `grow.gif` (animation).
 A run takes roughly 5–10 minutes.
 
@@ -33,7 +36,7 @@ outside the contact edge, so the flaw was not degraded and the crack never grew.
 strain (`max(e1, e3) > 0`). With this change the crack grows from about 4.3 N in the example above.
 
 ## Caveats
-- Results were checked only for the parameters above; at the crack-growth steps the staggered iteration reaches its
+- Results were checked only for the parameters above. At the crack-growth steps the staggered iteration reaches its
   iteration limit (unstable crack jump), so use more load steps (`--nsteps`) before trusting numbers.
 - The damage zone is wide because the length scale ell (8 µm) is not small relative to the crack; the cone angle
   has not been verified against theory.
